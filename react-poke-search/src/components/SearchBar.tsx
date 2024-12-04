@@ -15,6 +15,11 @@ function SearchBar({ setResults }: { setResults: any }): React.JSX.Element {
    * @param {string} pokemon - The Pokémon to fetch.
    */
   const fetchPokemon = async (pokemon: string) => {
+    
+    if (!pokemon) {
+      return;
+    }
+    
     try {
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`
